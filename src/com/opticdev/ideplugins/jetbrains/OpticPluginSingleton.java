@@ -129,7 +129,7 @@ public class OpticPluginSingleton {
                     .put("file", filePath);
         }
 
-        System.out.println("SEND "+ json.toString());
+//        System.out.println("SEND "+ json.toString());
 
         if (socket.isOpen()) {
             socket.send(json.toString());
