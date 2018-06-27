@@ -7,6 +7,7 @@ import com.intellij.openapi.editor.event.*;
 import com.intellij.openapi.util.TextRange;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.regex.Matcher;
@@ -21,6 +22,14 @@ public class OpticPluginSingleton {
 
     private OpticPluginSingleton()
     {
+
+        Runtime rt = Runtime.getRuntime();
+        try {
+            Process pr = rt.exec("open /Applications/Optic.app");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         EditorEventMulticaster eventMulticaster = EditorFactory.getInstance().getEventMulticaster();
 
         eventMulticaster.addVisibleAreaListener(new VisibleAreaListener() {
